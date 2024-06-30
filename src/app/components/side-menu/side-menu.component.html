@@ -1,0 +1,16 @@
+
+
+  <mat-drawer-container  [hasBackdrop]="true">
+    <mat-drawer #drawer [mode]="'over'">
+        <p routerLink="/meus-pets">Meus Pets</p>
+        <p routerLink="/lembretes">Lembretes</p>
+        <p routerLink="/calendario-de-vacinas">Calendário de vacinas</p>
+        <p routerLink="/rotinas">Rotinas</p>
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-icon (click)="drawer.toggle()" aria-hidden="false" aria-label="Menu icon" fontIcon="menu"></mat-icon> 
+      <router-outlet></router-outlet>   
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
+  
