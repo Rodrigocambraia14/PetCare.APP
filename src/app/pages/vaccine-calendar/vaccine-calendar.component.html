@@ -1,1 +1,12 @@
-<p>vaccine-calendar works!</p>
+<mat-card class="calendar-card">
+    <mat-card-content>
+      <mat-calendar [selected]="selectedDate" (selectedChange)="dateSelected($event)">
+      </mat-calendar>
+      <div class="relevant-dates">
+        <div *ngFor="let date of relevantDates" class="date-item" (click)="openDialog(date)">
+          <span class="dot"></span> {{ date | date }} - {{ getDescription(date) }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

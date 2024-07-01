@@ -2,7 +2,24 @@
     color:black;
 }
   
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+  }
   
+  a[mat-button] {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  #logout {
+    margin-top: 200px;
+    color: #f44336; /* Example background color for the logout button */
+  }
+  
+
   mat-drawer-container{
     width: 100%;
     height: 100%;

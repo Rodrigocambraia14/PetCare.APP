@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/auth/login/login.component';
 import { VaccineCalendarComponent } from './pages/vaccine-calendar/vaccine-calendar.component';
 import { RoutinesComponent } from './pages/routines/routines.component';
 import { RemindersComponent } from './pages/reminders/reminders.component';
@@ -13,5 +12,5 @@ export const routes: Routes = [
   { path: 'rotinas', component: RoutinesComponent },
   { path: 'home', component: HomeComponent }, // Add the HomeComponent route
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' } 
 ];
