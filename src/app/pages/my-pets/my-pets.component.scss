@@ -1,0 +1,22 @@
+.pet-card {
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .pet-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .add-pet-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1000;
+  }
+  
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+  }
+  

@@ -1,1 +1,3 @@
-<app-side-menu></app-side-menu>
+<app-side-menu *ngIf="authService.isAuthenticated()"></app-side-menu>
+
+<router-outlet *ngIf="!authService.isAuthenticated()"></router-outlet>

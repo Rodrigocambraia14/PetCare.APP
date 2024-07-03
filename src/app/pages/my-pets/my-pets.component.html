@@ -1,1 +1,21 @@
-<p>my-pets works!</p>
+<ngb-carousel *ngIf="pets.length > 0">
+    <ng-template ngbSlide *ngFor="let pet of pets">
+      <mat-card class="pet-card">
+        <mat-card-header>
+          <mat-card-title>{{ pet.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img [src]="pet.image" alt="{{ pet.name }}" class="pet-image">
+          <p>Idade: {{ pet.age > 1 ? pet.age + ' anos' : pet.age + ' ano'}}</p>
+          <p>Gênero: {{ pet.gender }}</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </ngb-carousel>
+
+
+  
+  <button mat-fab color="primary" class="add-pet-button" aria-label="Add Pet" (click)="openAddPetDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+  

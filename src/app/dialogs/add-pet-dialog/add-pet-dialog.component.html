@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add a new pet</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Age" type="number" [(ngModel)]="data.age">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Gender" [(value)]="data.gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Image URL" [(ngModel)]="imageUrl">
+    <button mat-button (click)="addImage()">Add Image</button>
+  </mat-form-field>
+  <div *ngFor="let image of data.images">{{ image }}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data">Add</button>
+</div>
