@@ -1,6 +1,7 @@
 <mat-drawer-container [hasBackdrop]="true">
     <mat-drawer #drawer [mode]="'over'" class="drawer">
       <nav class="nav-links">
+        <a mat-button routerLink="/home" (click)="drawer.toggle()">Home</a>
         <a mat-button routerLink="/meus-pets" (click)="drawer.toggle()">Meus Pets</a>
         <a mat-button routerLink="/lembretes" (click)="drawer.toggle()">Lembretes</a>
         <a mat-button routerLink="/calendario-de-vacinas" (click)="drawer.toggle()">Calendário de vacinas</a>

@@ -6,13 +6,14 @@ import { MyPetsComponent } from './pages/my-pets/my-pets.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-    { path: 'meus-pets', component: MyPetsComponent },
-  { path: 'lembretes', component: RemindersComponent },
-  { path: 'calendario-de-vacinas', component: VaccineCalendarComponent },
-  { path: 'rotinas', component: RoutinesComponent },
-  { path: 'home', component: HomeComponent }, 
+  { path: 'meus-pets', component: MyPetsComponent, canActivate: [AuthGuard] },
+  { path: 'lembretes', component: RemindersComponent, canActivate: [AuthGuard] },
+  { path: 'calendario-de-vacinas', component: VaccineCalendarComponent, canActivate: [AuthGuard] },
+  { path: 'rotinas', component: RoutinesComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  }, 
   { path: 'login', component: LoginComponent }, 
   { path: 'register', component: RegisterComponent }, 
   { path: '', redirectTo: '/home', pathMatch: 'full' },

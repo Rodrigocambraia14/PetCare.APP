@@ -6,13 +6,13 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class CatFactService {
+export class RandomAnimalImagesService {
 
-  private apiUrl = 'https://meowfacts.herokuapp.com/?lang=por';
+  private apiUrl = 'https://random.dog/woof.json?ref=public_apis';
 
   constructor(private http: HttpClient) { }
 
-  getCatFact(): any {
+  getRandomImage(): any {
     return this.http.get<any>(this.apiUrl);
   }
 }

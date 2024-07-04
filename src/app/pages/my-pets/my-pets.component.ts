@@ -7,12 +7,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PetService } from '../../../services/pet-service/pet.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Pet {
   name: string;
   age: number;
   gender: string;
-  image: string;
+  color: string;
 }
 
 @Component({
@@ -24,37 +26,31 @@ interface Pet {
 })
 
 export class MyPetsComponent implements OnInit {
-  pets: Pet[] = [
-    {
-      name: 'Buddy',
-      age: 1,
-      gender: 'Macho',
-      image: 'path/to/image1.jpg'
-    },
-    {
-      name: 'Luna',
-      age: 3,
-      gender: 'Fêmea',
-      image: 'path/to/image1.jpg'
-    }
-  ];
+  pets: Pet[] = [];
+  
 
   timings = '250ms ease-in';
   interval = 5000;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private petService: PetService, private snackBar: MatSnackBar) {}
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    await this.petService.get().subscribe((res) => {
+      this.pets = res;
+    })
+  }
 
   openAddPetDialog(): void {
     const dialogRef = this.dialog.open(AddPetDialogComponent, {
       width: '250px',
-      data: { name: '', age: 0, gender: '', images: [] }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(async result => {
       if (result) {
-        this.pets.push(result);
+        await this.petService.register(result).subscribe((res:any) => {
+          this.snackBar.open('Pet cadastrado com sucesso!', 'OK');
+          window.location.reload();
+        })
       }
     });
   }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -14,20 +14,18 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class AddPetDialogComponent {
   imageUrl: string = '';
-
+  data :any = {
+    name: '',
+    color: '',
+    age: 0,
+    gender: 'M'
+  };
+  
   constructor(
     public dialogRef: MatDialogRef<AddPetDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  addImage(): void {
-    if (this.imageUrl) {
-      this.data.images.push(this.imageUrl);
-      this.imageUrl = '';
-    }
   }
 }

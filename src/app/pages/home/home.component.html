@@ -1,4 +1,18 @@
-
-<div id="home">
-    <p>Home page works!</p>
-</div>
+<div class="container">
+    <mat-card class="card">
+      <mat-card-title>Dicas</mat-card-title>
+      <mat-card-subtitle>{{ randomReminder }}</mat-card-subtitle>
+    </mat-card>
+  
+    <mat-card class="card">
+      <mat-card-title>Curiosidade do dia</mat-card-title>
+      <mat-card-subtitle>{{ curiosity }}</mat-card-subtitle>
+    </mat-card>
+  
+    <mat-card class="card">
+      <mat-card-title>Foto do dia</mat-card-title>
+      <div class="img-container">
+        <img mat-card-image [src]="photoUrl" alt="Foto do dia">
+      </div>
+    </mat-card>
+  </div>

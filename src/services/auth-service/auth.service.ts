@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'https://localhost:5001';
+  private apiUrl = 'http://127.0.0.1:5000/api';
 
   constructor(private http: HttpClient) { }
 
@@ -17,30 +17,16 @@ export class AuthService {
         {
         email: email,
         password: password
-    }).pipe(
-      map(response => {
-        // Assuming response contains userId and token
-        const userId = response.data['userId'];
-        const token = response.data['token'];
-        // Save userId and token to localStorage
-        localStorage.setItem('userId', userId);
-        localStorage.setItem('token', token);
-        return response.data;
-      }),
-      catchError(this.handleError)
-    );
+    })
   }
 
-  register(name: string, email: string, password: string): Observable<any> {
+  register(name: string, email: string, password: string): any {
     return this.http.post<{ data: string[] }>(`${this.apiUrl}/user/add`, 
     {
         name: name,
         email: email, 
         password: password
-    }).pipe(
-      map(response => response.data),
-      catchError(this.handleError)
-    );
+    });
   }
 
   isAuthenticated(): boolean {
@@ -48,15 +34,5 @@ export class AuthService {
     return !!userId; // Returns true if userId exists, otherwise false
   }
 
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Unknown error!';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side errors
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // Server-side errors
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    return throwError(errorMessage);
-  }
+  
 }

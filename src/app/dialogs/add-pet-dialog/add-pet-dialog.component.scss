@@ -1,0 +1,30 @@
+.dialog-content, .dialog-header, .dialog-footer{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.dialog-header{
+    margin: 0;
+}
+
+.dialog-content{
+    padding: 20px !important;
+}
+
+.dialog-footer{
+    display: flex;
+    justify-content: space-between;
+}
+.back-button{
+    border: none;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.default-button{
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #b2ffff;
+}

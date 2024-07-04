@@ -4,10 +4,13 @@
     margin: 100px 0px;
   }
 
-  .mat-form-field {
-    width: 100%;
-    min-width: 300px;
+  mat-card{
+    background-color: whitesmoke;
+    width: 80%;
+    color: black;
+    padding: 20px;
   }
+
 
   mat-card-title,
   mat-card-content {
@@ -27,11 +30,12 @@
     justify-content: flex-end;
   }
 
-  .bottom-span{
-    margin-top: 30px;
-  }
-
-  .container{
+  .cadastro-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-span{
+    margin-top: 30px;
   }
