@@ -19,21 +19,29 @@ export class HomeComponent {
   ];
   randomReminder: string;
   curiosity: string = '';
-  photoUrl: string;
+  photoUrl: string = '';
 
   constructor(private catFactService: CatFactService, private randomImageService: RandomAnimalImagesService) {
     this.randomReminder = this.getRandomReminder();
 
-    this.photoUrl = 'https://placekitten.com/300/200'; // Replace with a dynamic URL if needed
   }
 
   async ngOnInit(): Promise<void> {
     await this.catFactService.getCatFact().subscribe((res:any) => {
-      this.curiosity = res.data[0]; // Replace with actual dynamic data
+      this.curiosity = res.data[0]; 
     });
 
+   await this.getRandomAnimalImage();
+   
+  }
+
+  async getRandomAnimalImage(){
     await this.randomImageService.getRandomImage().subscribe((res:any) => {
-      this.photoUrl = res.url; // Replace with actual dynamic data
+
+      if(res.url.endsWith('mp4'))
+        this.getRandomAnimalImage();
+      else
+        this.photoUrl = res.url; 
     });
 
   }

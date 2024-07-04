@@ -1,13 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: whitesmoke; }
 input, select {
     border-radius: 10px;
     border: none;
     margin: 10px;
     padding: 10px;
+    background-color: whitesmoke;
 }
+
+
 
 mat-card-title{
     margin-top: 10px;

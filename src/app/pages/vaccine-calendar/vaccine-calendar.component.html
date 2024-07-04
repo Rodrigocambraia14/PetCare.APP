@@ -1,12 +1,16 @@
-<mat-card class="calendar-card">
-    <mat-card-content>
-      <mat-calendar [selected]="selectedDate" (selectedChange)="dateSelected($event)">
-      </mat-calendar>
-      <div class="relevant-dates">
-        <div *ngFor="let date of relevantDates" class="date-item" (click)="openDialog(date)">
-          <span class="dot"></span> {{ date | date }} - {{ getDescription(date) }}
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  
+<div class="calendar-container">
+    <h2>Calendário de vacinação</h2>
+
+    <mat-card class="calendar-card">
+        <mat-card-content>
+            <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+          <div class="relevant-dates">
+            <div *ngFor="let date of relevantDates" class="date-item" (click)="openUpdateDialog(date)">
+              <span class="dot"></span> {{ date.date | date }} - {{ date.description }}
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      
+</div>
+

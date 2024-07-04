@@ -17,8 +17,8 @@ export class AddPetDialogComponent {
   data :any = {
     name: '',
     color: '',
-    age: 0,
-    gender: 'M'
+    age: '',
+    gender: ''
   };
   
   constructor(

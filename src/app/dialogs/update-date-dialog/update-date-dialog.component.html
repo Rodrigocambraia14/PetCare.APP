@@ -1,8 +1,8 @@
 <div class="dialog-container">
     <p mat-dialog-title class="title">Cadastro de evento</p>
-    <p mat-dialog-title>Data: {{data | date}}</p>
+    <p mat-dialog-title>Data: {{data.date | date}}</p>
     <div mat-dialog-content>
-        <input [(ngModel)]="description" placeholder="descrição">
+        <input [(ngModel)]="data.description" placeholder="descrição">
     </div>
 
     <div mat-dialog-actions class="dialog-footer">
