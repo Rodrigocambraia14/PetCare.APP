@@ -1,27 +1,96 @@
-# AngularDocker
+# PetCare.APP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+## Descrição
 
-## Development server
+O PetCare.APP é um aplicativo desenvolvido para permitir que os usuários façam login, criem contas, registrem seus pets e gerenciem o calendário de vacinas dos seus animais de estimação. O projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 18.0.4 e Node versão 20.x.x.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Funcionalidades
 
-## Code scaffolding
+- Login de usuário
+- Criação de conta
+- Registro de pets
+- Gerenciamento do calendário de vacinas dos pets
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## APIs utilizadas
+
+ ### API privada
+  
+  PetCare.API - Python + Flask
+
+ ### APIs Públicas
+
+  API que retorna imagens randômicas de animais - GET https://random.dog/woof.json?ref=public_apis
+
+  API que retorna curiosidades sobre pets - GET https://meowfacts.herokuapp.com/?lang=por
+
+## Pré-requisitos
+
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+- [Docker](https://www.docker.com/)
+
+## Servidor de Desenvolvimento
+
+Para rodar o servidor de desenvolvimento, utilize o comando:
+
+```sh
+ng serve
+```
+
+Acesse http://localhost:4200/ no seu navegador. A aplicação será recarregada automaticamente quando você modificar qualquer arquivo fonte.
+
+## Criação de Componentes
+Para gerar um novo componente, utilize o comando:
+
+```sh
+ng generate component nome-do-componente
+```
+
+Você também pode usar ng generate directive|pipe|service|class|guard|interface|enum|module.
 
 ## Build
+Para compilar o projeto, utilize o comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```sh
+ng build
+```
+Os artefatos de build serão armazenados no diretório dist/.
 
-## Running unit tests
+## Executando Testes Unitários
+Para executar os testes unitários, utilize o comando:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+ng test
+```
+Os testes serão executados via Karma.
 
-## Running end-to-end tests
+## Executando Testes End-to-End
+Para executar testes end-to-end, utilize o comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```sh
+ng e2e
+```
+Para utilizar este comando, é necessário adicionar um pacote que implemente capacidades de testes end-to-end.
 
-## Further help
+## Ajuda Adicional
+Para obter mais ajuda sobre o Angular CLI, utilize o comando ng help ou confira a Visão Geral e Referência de Comandos do Angular CLI.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Executando com Docker
+Para facilitar o processo de configuração e execução do projeto, você pode usar o Docker. Siga os passos abaixo para rodar a aplicação com Docker:
+
+### Passo 1: Criar imagem
+Execute o seguinte comando na raiz do projeto:
+
+```sh
+docker build -t angular-docker .
+```
+
+### Passo 2: Execute o container docker utilizando a imagem criada anteriormente
+
+```sh
+docker run -p 4200:4200 angular-docker
+```
+
+### Acesse  a aplicação no endereço disponibilizado
+
+http://localhost:4200
