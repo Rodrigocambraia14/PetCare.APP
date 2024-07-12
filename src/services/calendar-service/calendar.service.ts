@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class CalendarService {
 
-  private apiUrl = 'http://127.0.0.1:5000/api';
+  private apiUrl = 'http://127.0.0.1:5001/api';
 
   constructor(private http: HttpClient) { }
 
